@@ -10,20 +10,17 @@ use Illuminate\Http\Client\Response;
 
 class SWAPIAdapter extends SWAPI{
 
-    //private Request $request;
     private $response;
     private $baseAppUrl;
 
 
     public function __construct($resource = '', $params = [], $id=null){
-        //$this->request = $request;
         $this->baseAppUrl = env("APP_URL") . '/api';
         parent::__construct();
         $this->setResource($resource);
 
         $this->setParams($params);
         $this->response = $this->get($id);
-        //$this->adaptRequest();
         $this->adaptResponse();
     }
 
@@ -38,13 +35,6 @@ class SWAPIAdapter extends SWAPI{
         //
     }
 
-    private function adaptRequest(): void{
-        $params = $this->request->toArray();
-        $id = (isset($this->request['id'])) ? $this->request['id'] : null;
-
-        $this->setParams($params);
-        $this->response = $this->get($id);
-    }
     private function adaptResponse(): void{
         if($this->response['status'] === 200){
             $this->response = $this->response->replace([
@@ -144,7 +134,7 @@ class SWAPIAdapter extends SWAPI{
     }
 
 
-    private function transformUrl($url){
+    private function transformUrl($url): string{
         return str_replace($this->baseUrl, $this->baseAppUrl, $url);
     }
 
