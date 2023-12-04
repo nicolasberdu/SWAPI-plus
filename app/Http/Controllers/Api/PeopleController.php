@@ -12,7 +12,10 @@ class PeopleController extends Controller
         $params = $request->toArray();
 
         $swapi = new SWAPIAdapter('people', $params);
-        return $swapi->getResponse();
+        $swapi = $swapi->getResponse();
+
+        return response($swapi['body'], $swapi['status'])
+            ->withHeaders(['Content-Type'=>'application/json']);
     }
 
     public function show(Request $request){
@@ -20,6 +23,9 @@ class PeopleController extends Controller
         $id = (isset($request['person'])) ? $request['person'] : null;
 
         $swapi = new SWAPIAdapter('people', $params, $id);
-        return $swapi->getResponse();
+        $swapi = $swapi->getResponse();
+
+        return response($swapi['body'], $swapi['status'])
+            ->withHeaders(['Content-Type'=>'application/json']);
     }
 }

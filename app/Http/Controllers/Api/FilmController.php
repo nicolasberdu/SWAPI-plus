@@ -6,13 +6,20 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Adapters\SWAPIAdapter;
 
+
+
+
 class FilmController extends Controller
 {
+     
     public function index(Request $request){
         $params = $request->toArray();
 
         $swapi = new SWAPIAdapter('films', $params);
-        return $swapi->getResponse();
+        $swapi = $swapi->getResponse();
+        
+        return response($swapi['body'], $swapi['status'])
+            ->withHeaders(['Content-Type'=>'application/json']);
     }
 
     public function show(Request $request){
@@ -20,6 +27,9 @@ class FilmController extends Controller
         $id = (isset($request['film'])) ? $request['film'] : null;
 
         $swapi = new SWAPIAdapter('films', $params, $id);
-        return $swapi->getResponse();
+        $swapi = $swapi->getResponse();
+
+        return response($swapi['body'], $swapi['status'])
+            ->withHeaders(['Content-Type'=>'application/json']);
     }
 }

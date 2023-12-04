@@ -12,7 +12,10 @@ class PlanetController extends Controller
         $params = $request->toArray();
         
         $swapi = new SWAPIAdapter('planets', $params);
-        return $swapi->getResponse();
+        $swapi = $swapi->getResponse();
+
+        return response($swapi['body'], $swapi['status'])
+            ->withHeaders(['Content-Type'=>'application/json']);
     }
 
     public function show(Request $request){
@@ -21,5 +24,8 @@ class PlanetController extends Controller
 
         $swapi = new SWAPIAdapter('planets', $params, $id);
         return $swapi->getResponse();
+
+        return response($swapi['body'], $swapi['status'])
+            ->withHeaders(['Content-Type'=>'application/json']);
     }
 }

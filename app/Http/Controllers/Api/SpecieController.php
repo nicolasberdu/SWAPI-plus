@@ -12,7 +12,10 @@ class SpecieController extends Controller
         $params = $request->toArray();
 
         $swapi = new SWAPIAdapter('species', $params);
-        return $swapi->getResponse();
+        $swapi = $swapi->getResponse();
+
+        return response($swapi['body'], $swapi['status'])
+            ->withHeaders(['Content-Type'=>'application/json']);
     }
 
     public function show(Request $request){
@@ -20,6 +23,9 @@ class SpecieController extends Controller
         $id = (isset($request['specie'])) ? $request['specie'] : null;
 
         $swapi = new SWAPIAdapter('species', $params, $id);
-        return $swapi->getResponse();
+        $swapi = $swapi->getResponse();
+
+        return response($swapi['body'], $swapi['status'])
+        ->withHeaders(['Content-Type'=>'application/json']);
     }
 }
