@@ -10,7 +10,9 @@ class VehicleModel extends Model
     use HasFactory;
 
     protected $table = 'VEHICLES';
+    protected $primaryKey = 'SWAPI_ID';
     public $timestamps = false;
+
     protected $fillable = [
         'SWAPI_ID',
         'VEHICLE_CLASS',

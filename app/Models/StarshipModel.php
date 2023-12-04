@@ -10,7 +10,9 @@ class StarshipModel extends Model
     use HasFactory;
 
     protected $table = 'STARSHIPS';
+    protected $primaryKey = 'SWAPI_ID';
     public $timestamps = false;
+    
     protected $fillable = [
         'SWAPI_ID',
         'STARSHIP_CLASS',
