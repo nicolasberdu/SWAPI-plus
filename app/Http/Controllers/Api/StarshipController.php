@@ -85,10 +85,13 @@ class StarshipController extends Controller
     public function increase(Request $request, $id){
         try {
             $starship = StarshipModel::where('SWAPI_ID', $id)->first();
+            if($starship === null){
+                return response()->json(['error' => 'Not found', 'detail' => 'Resource not found'], 404);
+            }
 
             $data = $request->all();
             $data = request()->validate([
-                'increaseBy' => 'required|int|min:0|max:' . 4294967294 - $vehicle['COUNT'],
+                'increaseBy' => 'required|int|min:0|max:' . 4294967294 - $starship['COUNT'],
             ]);
 
             $starship->update(['COUNT'=> $starship['COUNT']+$data['increaseBy']]);
@@ -108,12 +111,16 @@ class StarshipController extends Controller
 
     public function decrease(Request $request, $id){
         try {
+            $starship = StarshipModel::where('SWAPI_ID', $id)->first();
+            if($starship === null){
+                return response()->json(['error' => 'Not found', 'detail' => 'Resource not found'], 404);
+            }
+
             $data = $request->all();
             $data = request()->validate([
-                'decreaseBy' => 'required|int|min:0|max:' . $vehicle['COUNT'],
+                'decreaseBy' => 'required|int|min:0|max:' . $starship['COUNT'],
             ]);
 
-            $starship = StarshipModel::where('SWAPI_ID', $id)->first();
             $starship->update(['COUNT'=> $starship['COUNT']-$data['decreaseBy']]);
         
             return response(['detail'=>'Created'], 201)

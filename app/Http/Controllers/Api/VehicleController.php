@@ -85,6 +85,9 @@ class VehicleController extends Controller
     public function increase(Request $request, $id){
         try {
             $vehicle = VehicleModel::where('SWAPI_ID', $id)->first();
+            if($vehicle === null){
+                return response()->json(['error' => 'Not found', 'detail' => 'Resource not found'], 404);
+            }
 
             $data = $request->all();
             $data = request()->validate([
@@ -109,6 +112,9 @@ class VehicleController extends Controller
     public function decrease(Request $request, $id){
         try {
             $vehicle = VehicleModel::where('SWAPI_ID', $id)->first();
+            if($vehicle === null){
+                return response()->json(['error' => 'Not found', 'detail' => 'Resource not found'], 404);
+            }
 
             $data = $request->all();
             $data = request()->validate([
