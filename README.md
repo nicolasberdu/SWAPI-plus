@@ -57,6 +57,8 @@ php artisan serve
 
 Al tratarse de una extension de SWAPI, SWAPI-plus conserva el comportamiento de las apis documentadas en https://swapi.dev/documentation. Por lo cual se dara una documentacion resumida, dandole mas importancia a la extension. 
 
+> Nota: Puede tambien usar la collecion de postman (SWAPI.postman_collection.json), para probar los enpoints.
+
 
 ### Limitación de velocidad
 Para evitar la limitacion de velocidad nomal de SWAPI, esta aplicacion cuenta con una configuracion de cache que hara persistir los resultados de las ultimas consultas, por un tiempo determinado.
