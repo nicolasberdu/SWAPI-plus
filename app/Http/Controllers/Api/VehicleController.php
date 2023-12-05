@@ -73,11 +73,11 @@ class VehicleController extends Controller
             return response(['detail'=>'Created'], 201)
                 ->withHeaders(['Content-Type'=>'application/json']);
         } catch (ValidationException $e) {
-            return response()->json(['error' => 'Bad request', 'detalles' => $e->getMessage()], 400);
+            return response()->json(['error' => 'Bad request', 'detail' => $e->getMessage()], 400);
         } catch (Exception $e){
             return response()->json([
                 'error' => 'Internal Server Error', 
-                'detalles' => "The server has encountered a situation that it doesn't know how to handle."
+                'detail' => "The server has encountered a situation that it doesn't know how to handle."
             ], 500);
         }
     }
@@ -97,11 +97,11 @@ class VehicleController extends Controller
                 ->withHeaders(['Content-Type'=>'application/json']);
         
         } catch (ValidationException $e) {
-            return response()->json(['error' => 'Bad request', 'detalles' => $e->getMessage()], 400);
+            return response()->json(['error' => 'Bad request', 'detail' => $e->getMessage()], 400);
         }  catch (Exception $e){
             return response()->json([
                 'error' => 'Internal Server Error', 
-                'detalles' => "The server has encountered a situation that it doesn't know how to handle."
+                'detail' => "The server has encountered a situation that it doesn't know how to handle."
             ], 500);
         }
     }
@@ -121,11 +121,11 @@ class VehicleController extends Controller
                 ->withHeaders(['Content-Type'=>'application/json']);
         
         } catch (ValidationException $e) {
-            return response()->json(['error' => 'Bad request', 'detalles' => $e->getMessage()], 400);
+            return response()->json(['error' => 'Bad request', 'detail' => $e->getMessage()], 400);
         } catch (Exception $e){
             return response()->json([
                 'error' => 'Internal Server Error', 
-                'detalles' => "The server has encountered a situation that it doesn't know how to handle."
+                'detail' => "The server has encountered a situation that it doesn't know how to handle."
             ], 500);
         }
     }

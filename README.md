@@ -127,7 +127,7 @@ Endpoints:
         Content-Type: application/json
         {
             "error": "Bad request",
-            "detalles": "The increase by field must be an integer."
+            "detail": "The increase by field must be an integer."
         }
     ```
 
@@ -154,7 +154,7 @@ Endpoints:
         Content-Type: application/json
         {
             "error": "Bad request",
-            "detalles": "The increase by field must not be greater than 45063383."
+            "detail": "The increase by field must not be greater than 45063383."
         }
     ```
 - PUT `/starships/:id/decrease` decrementar en un valor x la cantidad de naves existentes de un modelo
@@ -180,7 +180,7 @@ Endpoints:
         Content-Type: application/json
         {
             "error": "Bad request",
-            "detalles": "The decrease by field is required."
+            "detail": "The decrease by field is required."
         }
     ```
 
@@ -244,7 +244,7 @@ Endpoints:
         Content-Type: application/json
         {
             "error": "Bad request",
-            "detalles": "The increase by field must be an integer."
+            "detail": "The increase by field must be an integer."
         }
     ```
 
@@ -271,7 +271,7 @@ Endpoints:
         Content-Type: application/json
         {
             "error": "Bad request",
-            "detalles": "The increase by field must not be greater than 45063383."
+            "detail": "The increase by field must not be greater than 45063383."
         }
     ```
 - PUT `/vehiculos/:id/decrease` decrementar en un valor x la cantidad de vehiculos existentes de un modelo
@@ -297,7 +297,7 @@ Endpoints:
         Content-Type: application/json
         {
             "error": "Bad request",
-            "detalles": "The decrease by field is required."
+            "detail": "The decrease by field is required."
         }
     ```
 
