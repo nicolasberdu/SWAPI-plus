@@ -1,0 +1,757 @@
+{
+	"info": {
+		"_postman_id": "94e4bad8-ce50-4252-8f28-2df834ca22fc",
+		"name": "SWAPI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "starships",
+			"item": [
+				{
+					"name": "update",
+					"item": [
+						{
+							"name": "starships-update-Ok",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Created 201\", function () {\r",
+											"    pm.response.to.have.status(201);\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"count\": 0\r\n}"
+								},
+								"url": {
+									"raw": "{{base-url}}/starships/3",
+									"host": [
+										"{{base-url}}"
+									],
+									"path": [
+										"starships",
+										"3"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "starships-update-Bad-Request",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Bad request 400\", function () {\r",
+											"    pm.response.to.have.status(400);\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"not_valid\": 5\r\n}"
+								},
+								"url": {
+									"raw": "{{base-url}}/starships/3",
+									"host": [
+										"{{base-url}}"
+									],
+									"path": [
+										"starships",
+										"3"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "decrease",
+					"item": [
+						{
+							"name": "starships-decrease-Ok",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Created 201\", function () {\r",
+											"    pm.response.to.have.status(201);\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"decreaseBy\": 0\r\n}"
+								},
+								"url": {
+									"raw": "{{base-url}}/starships/3/decrease",
+									"host": [
+										"{{base-url}}"
+									],
+									"path": [
+										"starships",
+										"3",
+										"decrease"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "starships-decrease-Ok Copy",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Bad request 400\", function () {\r",
+											"    pm.response.to.have.status(400);\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"not_valid\": 0\r\n}"
+								},
+								"url": {
+									"raw": "{{base-url}}/starships/3/decrease",
+									"host": [
+										"{{base-url}}"
+									],
+									"path": [
+										"starships",
+										"3",
+										"decrease"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "increase",
+					"item": [
+						{
+							"name": "starships-increase-Ok",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Created 201\", function () {\r",
+											"    pm.response.to.have.status(201);\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"increaseBy\": 0\r\n}"
+								},
+								"url": {
+									"raw": "{{base-url}}/starships/3/increase",
+									"host": [
+										"{{base-url}}"
+									],
+									"path": [
+										"starships",
+										"3",
+										"increase"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "starships-increase-Bad-Request",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Bad request 400\", function () {\r",
+											"    pm.response.to.have.status(400);\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"not_valid\": 0\r\n}"
+								},
+								"url": {
+									"raw": "{{base-url}}/starships/3/increase",
+									"host": [
+										"{{base-url}}"
+									],
+									"path": [
+										"starships",
+										"3",
+										"increase"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "starships-api",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Ok 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"// compruebo existencia de count\r",
+									"var jsonData = pm.response.json();\r",
+									"\r",
+									"pm.test(\"Campo 'count' existe\", function () {\r",
+									"    pm.expect(jsonData).to.have.property('count');\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Campo 'count' es entero positivo o cero\", function () {\r",
+									"    pm.expect(jsonData.count).to.be.an('number');\r",
+									"    pm.expect(jsonData.count).to.be.above(-1);\r",
+									"});\r",
+									"\r",
+									"var jsonData = pm.response.json();\r",
+									"\r",
+									"var baseUrl = pm.variables.get('base-url');\r",
+									"\r",
+									"pm.test(\"Campo 'url' existe\", function () {\r",
+									"    pm.expect(jsonData).to.have.property('url');\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Url igual al dominio \" + baseUrl, function () {\r",
+									"    pm.expect(jsonData.url).to.include(baseUrl);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base-url}}/starships/3",
+							"host": [
+								"{{base-url}}"
+							],
+							"path": [
+								"starships",
+								"3"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "vehicles",
+			"item": [
+				{
+					"name": "increase",
+					"item": [
+						{
+							"name": "vehicles-increase-Ok",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Created 201\", function () {\r",
+											"    pm.response.to.have.status(201);\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"increaseBy\": 0\r\n}"
+								},
+								"url": {
+									"raw": "{{base-url}}/vehicles/24/increase",
+									"host": [
+										"{{base-url}}"
+									],
+									"path": [
+										"vehicles",
+										"24",
+										"increase"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "vehicles-increase-Bad-Request",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Bad request 400\", function () {\r",
+											"    pm.response.to.have.status(400);\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"not_valid\": 0\r\n}"
+								},
+								"url": {
+									"raw": "{{base-url}}/vehicles/24/increase",
+									"host": [
+										"{{base-url}}"
+									],
+									"path": [
+										"vehicles",
+										"24",
+										"increase"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "decrease",
+					"item": [
+						{
+							"name": "vehicles-decrease-Ok",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Created 201\", function () {\r",
+											"    pm.response.to.have.status(201);\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"decreaseBy\": 0\r\n}"
+								},
+								"url": {
+									"raw": "{{base-url}}/vehicles/24/decrease",
+									"host": [
+										"{{base-url}}"
+									],
+									"path": [
+										"vehicles",
+										"24",
+										"decrease"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "vehicles-decrease-Ok Copy",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Bad request 400\", function () {\r",
+											"    pm.response.to.have.status(400);\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"not_valid\": 0\r\n}"
+								},
+								"url": {
+									"raw": "{{base-url}}/vehicles/24/decrease",
+									"host": [
+										"{{base-url}}"
+									],
+									"path": [
+										"vehicles",
+										"24",
+										"decrease"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "update",
+					"item": [
+						{
+							"name": "vehicles-update-Ok",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Created 201\", function () {\r",
+											"    pm.response.to.have.status(201);\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"count\": 0\r\n}"
+								},
+								"url": {
+									"raw": "{{base-url}}/vehicles/24",
+									"host": [
+										"{{base-url}}"
+									],
+									"path": [
+										"vehicles",
+										"24"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "vehicles-update-Bad-Request",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Bad request 400\", function () {\r",
+											"    pm.response.to.have.status(400);\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"not_valid\": 5\r\n}"
+								},
+								"url": {
+									"raw": "{{base-url}}/vehicles/24",
+									"host": [
+										"{{base-url}}"
+									],
+									"path": [
+										"vehicles",
+										"24"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "vehicles-api",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Ok 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"// compruebo existencia de count\r",
+									"var jsonData = pm.response.json();\r",
+									"\r",
+									"pm.test(\"Campo 'count' existe\", function () {\r",
+									"    pm.expect(jsonData).to.have.property('count');\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Campo 'count' es entero positivo o cero\", function () {\r",
+									"    pm.expect(jsonData.count).to.be.an('number');\r",
+									"    pm.expect(jsonData.count).to.be.above(-1);\r",
+									"});\r",
+									"\r",
+									"var jsonData = pm.response.json();\r",
+									"\r",
+									"var baseUrl = pm.variables.get('base-url');\r",
+									"\r",
+									"pm.test(\"Campo 'url' existe\", function () {\r",
+									"    pm.expect(jsonData).to.have.property('url');\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Url igual al dominio \" + baseUrl, function () {\r",
+									"    pm.expect(jsonData.url).to.include(baseUrl);\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base-url}}/vehicles/24",
+							"host": [
+								"{{base-url}}"
+							],
+							"path": [
+								"vehicles",
+								"24"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "root-api",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base-url}}",
+					"host": [
+						"{{base-url}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "people-api",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base-url}}/people",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"people"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "planets-api",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base-url}}/planets",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"planets"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "films-api",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base-url}}/films",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"films"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "species-api",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base-url}}/species/",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"species",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
